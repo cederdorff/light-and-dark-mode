@@ -4,7 +4,7 @@ window.addEventListener("load", initApp);
 
 function initApp() {
     //event listeners
-    document.querySelector("#select-mode").addEventListener("change", modeSelected);
+    document.querySelector("#select-color-mode").addEventListener("change", modeSelected);
 }
 
 function modeSelected() {
