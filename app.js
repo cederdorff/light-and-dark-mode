@@ -4,10 +4,10 @@ window.addEventListener("load", initApp);
 
 function initApp() {
     //event listeners
-    document.querySelector("#select-mode").addEventListener("change", modeChanged);
+    document.querySelector("#select-mode").addEventListener("change", modeSelected);
 }
 
-function modeChanged() {
+function modeSelected() {
     const mode = this.value;
     console.log(mode);
     resetMode(); // reset no matter what
