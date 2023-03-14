@@ -3,35 +3,42 @@
 window.addEventListener("load", initApp);
 
 function initApp() {
-    //event listeners
-    document.querySelector("#select-mode").addEventListener("change", modeSelected);
-
-    setUserMode();
+    //event listener for select on HTML
+    document.querySelector("#select-color-mode").addEventListener("change", modeSelected);
+    // call detectUserPreference to read from localStorage
+    detectUserPreference();
 }
 
-function setUserMode() {
-    const modeFromLocalStorage = readModeFromLocalStorage();
+// Detect and set previous selected color mode from localStorage
+function detectUserPreference() {
+    const modeFromLocalStorage = readUserColorMode();
     console.log(modeFromLocalStorage);
-    changeMode(modeFromLocalStorage);
-    document.querySelector("#select-mode").value = modeFromLocalStorage;
+
+    if (modeFromLocalStorage) {
+        changeMode(modeFromLocalStorage);
+        document.querySelector("#select-color-mode").value = modeFromLocalStorage;
+    }
 }
 
-function readModeFromLocalStorage() {
-    const mode = localStorage.getItem("userMode");
-    console.log(mode);
-    return mode;
+// Read and return userColorMode from localStorage
+function readUserColorMode() {
+    const userColorMode = localStorage.getItem("userColorMode");
+    console.log(userColorMode);
+    return userColorMode;
 }
 
-function saveModeToLocalStorage(mode) {
-    localStorage.setItem("userMode", mode);
+// Save color color mode to localStorage
+function saveUserColorMode(mode) {
+    localStorage.setItem("userColorMode", mode);
 }
 
+// modeSelected called when #select-color-mode changes value (the user select color mode)
 function modeSelected() {
-    const mode = this.value;
-    console.log(mode);
-    resetMode(); // reset no matter what
-    changeMode(mode);
-    saveModeToLocalStorage(mode);
+    const selectedColorMode = this.value;
+    console.log(selectedColorMode);
+    resetColorMode(); // reset color mode (css classes)
+    changeMode(selectedColorMode);
+    saveUserColorMode(selectedColorMode);
 }
 
 function changeMode(mode) {
@@ -48,6 +55,6 @@ function changeMode(mode) {
 }
 
 // removes all *-mode classes from body
-function resetMode() {
+function resetColorMode() {
     document.body.classList.remove("dark-mode", "green-mode", "yellow-mode");
 }
