@@ -3,7 +3,7 @@
 window.addEventListener("load", initApp);
 
 function initApp() {
-    //event listeners
+    //event listener for select on HTML
     document.querySelector("#select-color-mode").addEventListener("change", modeSelected);
 }
 
