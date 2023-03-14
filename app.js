@@ -13,6 +13,7 @@ function setUserMode() {
     const modeFromLocalStorage = readModeFromLocalStorage();
     console.log(modeFromLocalStorage);
     changeMode(modeFromLocalStorage);
+    document.querySelector("#select-mode").value = modeFromLocalStorage;
 }
 
 function readModeFromLocalStorage() {
