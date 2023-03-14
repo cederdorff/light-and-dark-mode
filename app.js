@@ -12,7 +12,6 @@ function modeSelected() {
     const selectedColorMode = this.value;
     console.log(selectedColorMode);
     changeMode(selectedColorMode);
-    saveUserColorMode(selectedColorMode);
 }
 
 // adds a css class to body based on choosen mode
@@ -32,6 +31,6 @@ function changeMode(mode) {
 }
 
 // removes all *-mode classes from body
-function resetMode() {
+function resetColorMode() {
     document.body.classList.remove("dark-mode", "green-mode", "yellow-mode");
 }
