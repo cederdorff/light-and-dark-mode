@@ -42,21 +42,5 @@ function modeSelected() {
 
 // adds a css class to body based on choosen mode
 function changeMode(mode) {
-    resetColorMode(); // reset color mode (css classes)
-
-    if (mode === "dark") {
-        console.log("Dark Mode");
-        document.body.classList.add("dark-mode");
-    } else if (mode === "green") {
-        console.log("Green Mode");
-        document.body.classList.add("green-mode");
-    } else if (mode === "yellow") {
-        console.log("Yellow Mode");
-        document.body.classList.add("yellow-mode");
-    }
-}
-
-// removes all *-mode classes from body
-function resetColorMode() {
-    document.body.classList.remove("dark-mode", "green-mode", "yellow-mode");
+    document.body.classList = mode;
 }
